@@ -1,0 +1,22 @@
+name: nginx
+
+on:
+  push:
+    branches:
+     - main
+
+jobs:
+    greet:
+      runs-on: ubuntu-latest
+    
+      steps:
+        - name: Update packages
+          run: sudo apt-get update
+        - name: Install nginx
+          run: sudo apt-get install nginx -y
+
+        - name: Check nginx version
+          run: nginx -v
+
+        - name: Start nginx manually
+          run: sudo service nginx start
