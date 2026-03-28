@@ -12,5 +12,5 @@ jobs:
       steps:
         - name: install nginx
           run: sudo apt-get install nginx -y
-        - name: check status
-          run: sudo systemctl status nginx
+        - name: check version
+          run: nginx --version
