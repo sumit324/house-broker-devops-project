@@ -1,0 +1,17 @@
+name: newworkflow
+
+on:
+  workflow_dispatch: 
+
+jobs:
+ new_job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: say hello to user
+       run: echo "hello my dear friend"
+ my_work:
+    needs: [new_job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: say print username
+        run: echo "user name $USER"
