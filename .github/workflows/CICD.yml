@@ -9,16 +9,19 @@ jobs:
       - name: checkout code
         run: echo "code clone from github"
   Build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: build container
         run: echo "docker container build"
   Test:
+    needs: [code,Build]
     runs-on: ubuntu-latest
     steps:
       - name: test container
         run: echo "test the container"
   deploy:
+    needs: [code,Build,Test]
     runs-on: ubuntu-latest
     steps:
       - name: deploy app
