@@ -1,0 +1,19 @@
+name: dockerserver
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+   greet:
+      runs-on: ubuntu-latest
+      steps:
+      - name: update system
+        run: sudo apt-get update
+
+      - name: install docker
+        run: sudo apt-get install docker.io -y
+      
+      - name: Check Docker version
+        run: docker --version
