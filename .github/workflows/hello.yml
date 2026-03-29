@@ -3,7 +3,7 @@ name: hello
 on:
   push:
     branches: [main]
-
+    
 jobs:
   greet:
     runs-on: ubuntu-latest
@@ -14,4 +14,9 @@ jobs:
 
       - name: say username
         run: echo "hello username $USER"
-            
+        
+  details:
+     runs-on: ubuntu-latest
+     steps:
+       - name: show version docker, python
+         run: docker --version && python --version
